@@ -1,4 +1,4 @@
-# graceful-greeter
+# graceful greeter
 > graceful linux 登录界面
 
 ## 安装
