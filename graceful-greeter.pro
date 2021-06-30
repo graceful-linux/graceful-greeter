@@ -23,6 +23,11 @@ HEADERS += \
     $$PWD/app/login-form.h                                      \
     $$PWD/app/main-window.h                                     \
 
+
+RESOURCES += \
+    $$PWD/data/resource.qrc
+
+
 FORMS += \
     $$PWD/app/login-form.ui
 

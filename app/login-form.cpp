@@ -40,6 +40,8 @@ LoginForm::LoginForm(QWidget *parent) : QWidget(parent), ui(new Ui::LoginForm), 
         close();
     }
 
+    setGraphicsEffect(new QGraphicsOpacityEffect);
+
     ui->setupUi(this);
     initialize();
 }

@@ -90,24 +90,30 @@ int MainWindow::getOffset(QString settingsOffset, int maxVal, int defaultVal)
 
 void MainWindow::setBackground()
 {
-    QImage backgroundImage;
+    QPixmap backgroundImage;
     QSettings greeterSettings(CONFIG_FILE, QSettings::IniFormat);
     
     if (greeterSettings.contains(BACKGROUND_IMAGE_KEY)) {
         QString pathToBackgroundImage = greeterSettings.value(BACKGROUND_IMAGE_KEY).toString();
         
-        backgroundImage = QImage(pathToBackgroundImage);
+        backgroundImage = QPixmap(pathToBackgroundImage);
         if (backgroundImage.isNull()) {
             qWarning() << "Not able to read" << pathToBackgroundImage << "as image";
         }
+    } else {
+        backgroundImage = QPixmap(":/greeter/bg.jpg");
     }
+
+//    backgroundImage.fill(Qt::transparent);
+//    backgroundImage.setGraphicsEffect(new QGraphicsBlurEffect);
     
     QPalette palette;
     QRect rect = QApplication::desktop()->screenGeometry(mScreen);
     if (backgroundImage.isNull()) {
         palette.setColor(QPalette::Background, Qt::black);
     } else {
-        QBrush brush(backgroundImage.scaled(rect.width(), rect.height()));
+        QBrush brush(backgroundImage.scaled(rect.width(), rect.height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+
         palette.setBrush(this->backgroundRole(), brush);
     }
 

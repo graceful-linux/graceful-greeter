@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/greeter">
+        <file>bg.jpg</file>
+    </qresource>
+</RCC>
