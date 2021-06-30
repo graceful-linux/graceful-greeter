@@ -4,10 +4,15 @@
 #include <QPalette>
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QPainter>
 
 #include "settings.h"
 #include "login-form.h"
 #include "main-window.h"
+
+QT_BEGIN_NAMESPACE
+extern Q_WIDGETS_EXPORT void qt_blurImage(QPainter *p, QImage &blurImage, qreal radius, bool quality, bool alphaOnly, int transposed = 0);
+QT_END_NAMESPACE
 
 using namespace graceful;
 
@@ -90,30 +95,34 @@ int MainWindow::getOffset(QString settingsOffset, int maxVal, int defaultVal)
 
 void MainWindow::setBackground()
 {
-    QPixmap backgroundImage;
+    QImage  pic;
+    QRect rect = QApplication::desktop()->screenGeometry(mScreen);
     QSettings greeterSettings(CONFIG_FILE, QSettings::IniFormat);
     
     if (greeterSettings.contains(BACKGROUND_IMAGE_KEY)) {
         QString pathToBackgroundImage = greeterSettings.value(BACKGROUND_IMAGE_KEY).toString();
         
-        backgroundImage = QPixmap(pathToBackgroundImage);
-        if (backgroundImage.isNull()) {
+        pic = QImage(pathToBackgroundImage);
+        if (pic.isNull()) {
+            pic = QImage(rect.width(), rect.height(), QImage::Format_RGB32);
             qWarning() << "Not able to read" << pathToBackgroundImage << "as image";
         }
     } else {
-        backgroundImage = QPixmap(":/greeter/bg.jpg");
+        pic = QImage(":/greeter/bg.jpg");
     }
 
-//    backgroundImage.fill(Qt::transparent);
-//    backgroundImage.setGraphicsEffect(new QGraphicsBlurEffect);
+    QPixmap backgroundImage(pic.size());
+    backgroundImage.fill(Qt::transparent);
+    {
+        QPainter painter(&backgroundImage);
+        qt_blurImage(&painter, pic, 800, true, false);
+    }
     
     QPalette palette;
-    QRect rect = QApplication::desktop()->screenGeometry(mScreen);
     if (backgroundImage.isNull()) {
         palette.setColor(QPalette::Background, Qt::black);
     } else {
         QBrush brush(backgroundImage.scaled(rect.width(), rect.height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
-
         palette.setBrush(this->backgroundRole(), brush);
     }
 
