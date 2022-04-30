@@ -7,9 +7,4 @@
 ```
 > 一款基于 QT 的登录界面
 
-## 预览图
-![all](/img/all.png)
-![user](/img/user.png)
-![session](/img/session.png)
-![power](/img/power.png)
 
