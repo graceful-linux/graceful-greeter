@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Graceful Greeter
+Comment=Graceful Greeter
+Exec=graceful-greeter
+Type=Application
+X-Ubuntu-Gettext-Domain=graceful-greeter

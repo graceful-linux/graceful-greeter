@@ -1,3 +1,4 @@
-- [ ]  为背景添加动态图
-- [ ]  重新绘制登陆框
-- [ ]  登陆界面添加动画
+- [x] 安装`graceful-greeter.desktop`
+- [ ] arch linux 平台打包
+- [ ] debian 平台打包
+- [ ] fedora 平台打包

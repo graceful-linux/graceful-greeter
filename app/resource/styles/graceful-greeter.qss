@@ -1,0 +1,409 @@
+/******************* 按钮 *********************/
+QPushButton
+{
+    text-align:center;
+    color: rgba(255, 255, 255, 90%);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+QPushButton::hover
+{
+    background-color: rgba(255, 255, 255, 20%);
+}
+QPushButton::pressed
+{
+    background-color: rgba(0, 0, 0, 30%);
+}
+
+/***************** 弹出菜单 QMenu ****************/
+QMenu
+{
+    background-color: rgba(255,255,255,20%);
+    color: white;
+    border-radius: 4px;
+    width: 260px;
+    padding: 5px 5px 5px 5px;
+}
+
+QMenu::item
+{
+    border-radius: 4px;
+    height:36px;
+    width:230;
+    font-size:16px;
+    padding: 2px 10px 2px 10px;
+}
+QMenu::item:selected
+{
+    background-color:rgba(255, 255, 255, 15%);
+}
+QMenu::item:pressed
+{
+    background-color: rgba(255, 255, 255, 15%);
+}
+
+QMenu#SessionWnd::item
+{
+    border-radius: 4px;
+    height:36px;
+    width:260px;
+    padding-left:10px;
+}
+QMenu#SessionWnd::icon
+{
+    padding-left:15px;
+}
+/***************** 文本Label ********************/
+
+QLabel
+{
+    color: white;
+    font-size: 16px;
+}
+
+
+/********************** 下拉选项 *************************/
+
+QComboBox
+{
+    background: rgba(255, 255, 255, 20%);
+    border: 1px solid rgba(255, 255, 255, 30%);
+    font-size:18px;
+    color: white;
+    combobox-popup: 0;  /* 配合setMaxVisibleItems设置下拉框显示的条数，超过的滚动显示 */
+}
+
+QComboBox::down-arrow
+{
+    image:url(:/images/images/combobox_down.png);
+}
+QComboBox::drop-down
+{
+    width: 30px;
+    border: none;
+}
+
+QComboBox QListView
+{
+    border: 1px solid #5187bd;
+/*    background: #4682B4;*/
+    background: rgba(255, 255, 255, 30%);
+    font-size: 18px;
+    color: white;
+}
+QComboBox QListView::item
+{
+    background: rgba(255, 255, 255, 0);
+}
+
+QComboBox QListView::item:hover
+{
+    background: rgba(255, 255, 255, 20%);
+}
+
+QComboBox QListView::item:selected
+{
+    background-color: rgba(255, 255, 255, 30%);
+}
+
+
+/************Arrow******************/
+#prevArrow
+{
+    background:transparent;
+    image:url(:/images/images/prev-40.png);
+}
+#prevArrow::hover
+{
+    image:url(:/images/images/prev.png);
+}
+
+#nextArrow
+{
+    background:transparent;
+    image:url(:/images/images/next-40.png);
+}
+#nextArrow::hover
+{
+    image:url(:/images/images/next.png);
+}
+
+/*********************** 列表 **************************/
+
+QListWidget
+{
+    background:transparent;
+    border: 0px;
+}
+
+/******************** 主界面顶部按钮 *********************/
+
+#powerButton, #keyboardButton,
+#sessionButton, #languageButton,#btnSwitchUser
+{
+    border-radius: 4px;
+}
+
+#languageButton
+{
+    font-size: 18px;
+}
+
+/********************** 弹出对话框 **********************/
+
+#fakeDialog
+{
+    background: rgba(12,66,120,0);
+    border: none;
+    border-radius: 10px;
+}
+
+#closeButton
+{
+    background: url(:/images/images/dialog_close.png);
+    background-repeat:no-repeat
+}
+#closeButton::hover
+{
+    border-radius: 4px;
+    background: url(:/images/images/dialog_close_highlight.png);
+    background-repeat:no-repeat;
+    font-size: 16px;
+}
+
+/********************** 认证界面 **********************/
+
+/* 返回按钮 */
+#backButton
+{
+    background: url(:/images/images/arrow_left.png);
+}
+#backButton::hover
+{
+    background: url(:/images/images/arrow_left_prelight.png);
+}
+
+#userWidget
+{
+/*    background: rgba(255, 0, 255, 30%);*/
+}
+/* 头像 */
+#faceLabel
+{
+     border: 2px solid white;
+     border-radius: 75;
+}
+#login_nameLabel
+{
+    font-size: 24px;
+/*  background: rgba(255, 255, 255, 30%);*/
+}
+#isLoginLabel
+{
+
+}
+
+/* 密码输入框 */
+QLineEdit
+{
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    font-size: 14px;
+    lineedit-password-character:9679;
+}
+
+QLineEdit::hover
+{
+    border: 1px solid #FFFFFF;
+}
+QLineEdit::focus
+{
+    background: #FFFFFF;
+    border: #FFFFFF;
+    border-radius: 4px;
+}
+/* 大写提示 */
+#capsIconLabel
+{
+    background: url(:/images/images/capslock.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 22px;
+    max-height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+}
+
+/* echo mode */
+#echoModeButton
+{
+    background: transparent;
+    image: url(:/images/images/hide-password.png);
+    max-width: 22px;
+    max-height: 22px;
+    margin-right: 5px;
+}
+#echoModeButton::checked
+{
+    image: url(:/images/images/show-password.png);
+}
+/* 登录按钮 */
+#loginButton
+{
+    image: url(:/images/images/login-button.png);
+     min-width: 26px;
+     max-width: 26px;
+     min-height: 26px;
+     max-height: 26px;
+     icon-size: 26px;
+     background:#3D6BE5;
+     border-radius:13px;
+}
+
+/* PAM message提示*/
+#messageLabel
+{
+    font-size: 16px;
+    color: white;
+}
+/*登录和重试按钮*/
+#messageButton
+{
+    font-size: 16px;
+    color: white;
+}
+
+
+/********************** 电源对话框 **********************/
+
+QListWidget
+{
+    background:transparent;
+    border: 0px;
+}
+QListWidget::item:hover
+{
+    background:rgba(255, 255, 255, 20%);
+    border-radius: 4px;
+    border: none;
+}
+
+/************ session选择对话框和language选择对话框 ************/
+QListWidget::item:hover#sessionsList,
+QListWidget::item:hover#languageList
+{
+    background:rgba(255, 255, 255, 20%);
+    border: none;
+}
+QListWidget::item:selected#sessionsList,
+QListWidget::item:selected#languageList
+{
+    background:rgba(255, 255, 255, 35%);
+    border: none;
+}
+
+QListWidget#languageList, #sessionsList
+{
+    border: 1px solid rgba(255, 255, 255, 20%);
+}
+
+QListWidget::item#languageList
+{
+    height:34px;
+}
+
+#sessionLabel
+{
+    font-size: 18px;
+    text-align: left center;
+    color: rgba(255, 255, 255, 90%);
+    margin-left: 8px;
+}
+
+#languageLabel
+{
+    font-size: 16px;
+    margin-left: 8px;
+    color: rgba(255, 255, 255, 90%);
+}
+
+#lblLanguagePrompt, #lblSessionPrompt
+{
+    font-size: 30px;
+    color: rgba(255, 255, 255, 90%);
+}
+
+/********************** 生物识别切换按钮 **************************/
+#biometricButton, #passwordButton,
+#otherDeviceButton, #retryButton,
+#OKButton
+{
+    background: rgba(255, 255, 255, 0);
+    font-size: 16px;
+    color: white;
+}
+
+#biometricButton::hover, #passwordButton::hover,
+#otherDeviceButton::hover, #retryButton::hover,
+#OKButton::hover
+{
+    background: rgba(255, 255, 255, 20%);
+}
+
+#biometricButton::pressed, #passwordButton::pressed,
+#otherDeviceButton::pressed, #retryButton::pressed,
+#OKButton::pressed
+{
+    background: rgba(0, 0, 0, 20%);
+}
+
+
+/********************** 生物识别设备选择界面 ************************/
+#lblBioetricDevicesPrompt {
+    font-size: 30px;
+}
+
+#lblDeviceType, #lblDeviceName,
+#cmbDeviceType, #cmbDeviceName
+{
+    font-size: 18px;
+}
+
+
+/************************ 显示模式切换 *****************************/
+
+QLabel#bg_mode_1
+{
+    background-image:url(:/images/images/btn1.png);
+}
+QLabel#bg_mode_2
+{
+    background-image:url(:/images/images/btn2.png);
+}
+QLabel#bg_mode_3
+{
+    background-image:url(:/images/images/btn3.png);
+}
+QLabel#bg_mode_4
+{
+    background-image:url(:/images/images/btn4.png);
+}
+
+QLabel#lb_mode
+{
+    color:black;
+    font-family:'droid-fallback'
+}
+
+QLabel#split{
+    background-image:url(:/images/images/split.png);
+    border:0px;
+}
+
+QPushButton#mode
+{
+    background-image:url(:/images/images/hover.png);
+    border:0px;
+}

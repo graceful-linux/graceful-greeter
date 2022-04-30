@@ -1,0 +1,63 @@
+.TH "graceful greeter" 3 "2022年 四月 18日 星期一" "Version v1.0.0" "graceful greeter" \" -*- nroff -*-
+.ad l
+.nh
+.SH 说明:
+graceful-greeter 是一款基于QT开发的LightDM登录界面，整个项目力求界面简洁、美观、功能实用、代码结构清晰，目前还处于初级开发阶段。
+.br
+
+.SH 项目主要模块:
+整个项目源代码存放于源码目录 app/ 下，其中各个文件夹具体划分如下：
+.br
+.DT
+1.
+.B 'authentication'
+文件夹主要用来存放登录用户名和密码验证流程，目前登录验证仅仅使用lightdm提供的接口实现，后续扩展一些其它登录方式(比如：刷脸登录...)
+.br
+.DT
+2.
+.B 'common'
+文件夹主要用来存放对公用功能的封装，这块代码之间不会相互依赖，仅仅被其它文件夹内代码所依赖
+.br
+.DT
+3.
+.B 'display-switch'
+计划废除
+.br
+.DT
+4.
+.B 'greeter'
+graceful-greeter 主要流程，包括main函数都在这里，这个文件还需要整理
+.br
+.DT
+5.
+.B 'model'
+分别存放：screen、session、user 数据文件
+.br
+.DT
+6.
+.B 'resource'
+主要用来存放图片资源文件，这些资源文件会编译到源码里。
+.br
+.DT
+7.
+.B 'ui'
+主要用来绘制用户界面
+.br
+.br
+
+.SH 界面结构:
+.br
+
+.SH greeter 验证流程:
+.br
+
+.SH 依赖库:
+.br
+
+.SH github源码:
+https://github.com/dingjingmaster/graceful-greeter
+
+.PP
+.SH "作者"
+.PP 
+dingjing(dingjing@live.cn)\&.
