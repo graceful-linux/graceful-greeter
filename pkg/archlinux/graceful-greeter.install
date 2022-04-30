@@ -1,0 +1,21 @@
+pre_install() {
+    [ -f /usr/bin/graceful-greeter ] && mv /usr/bin/graceful-greeter /usr/bin/graceful-greeter.bak
+    [ -f /usr/local/bin/graceful-greeter ] && mv /usr/local/bin/graceful-greeter /usr/local/bin/graceful-greeter.bak
+    [ -f /usr/share/man/man3/graceful-greeter.3.gz ] && rm -f /usr/share/man/man3/graceful-greeter.3.gz 
+    [ -f /usr/share/xgreeters/graceful-greeter.desktop ] && rm -f /usr/share/xgreeters/graceful-greeter.desktop 
+}
+
+
+post_install() {
+}
+
+pre_upgrade() {
+}
+
+post_upgrade() {
+}
+
+pre_remove() {
+}
+post_remove() {
+}
